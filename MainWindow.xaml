@@ -1,0 +1,52 @@
+<Window x:Class="CodexMeter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Codex Meter" Width="332" MinWidth="300" SizeToContent="Height"
+        WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True"
+        Background="Transparent" ShowInTaskbar="False" Topmost="True">
+    <Border x:Name="Card" Background="#F2181A1F" BorderBrush="#3CFFFFFF" BorderThickness="1"
+            CornerRadius="18" Padding="18" MouseLeftButtonDown="Card_MouseLeftButtonDown">
+        <Border.Effect>
+            <DropShadowEffect Color="#000000" BlurRadius="28" ShadowDepth="8" Opacity="0.42" />
+        </Border.Effect>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Margin="0,0,0,14">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Border Width="10" Height="10" CornerRadius="5" Background="#51D88A" Margin="0,0,9,0" />
+                    <TextBlock Text="CODEX METER" Foreground="#F4F4F5" FontFamily="Segoe UI Semibold"
+                               FontSize="13" VerticalAlignment="Center" />
+                </StackPanel>
+                <Button x:Name="RefreshButton" Grid.Column="1" Content="刷新" ToolTip="立即刷新"
+                        MinWidth="48" Height="34" Margin="0,0,6,0" Padding="10,0" FontSize="12"
+                        Foreground="#D4D4D8" Background="#263F3F46" BorderBrush="#4D71717A"
+                        BorderThickness="1" Cursor="Hand" Click="RefreshButton_Click" />
+                <Button x:Name="HideButton" Grid.Column="2" Content="隐藏" ToolTip="隐藏到系统托盘"
+                        MinWidth="48" Height="34" Padding="10,0" FontSize="12"
+                        Foreground="#D4D4D8" Background="#263F3F46" BorderBrush="#4D71717A"
+                        BorderThickness="1" Cursor="Hand" Click="HideButton_Click" />
+            </Grid>
+
+            <StackPanel x:Name="UsagePanel" Grid.Row="1" />
+
+            <Grid Grid.Row="2" Margin="0,14,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="StatusText" Text="正在读取额度…" Foreground="#A1A1AA" FontSize="12" />
+                <TextBlock x:Name="PlanText" Grid.Column="1" Foreground="#A1A1AA" FontSize="12" />
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
